@@ -4,6 +4,8 @@
 
 ### Author: Seth Pierce
 
+- [gitub link](https://github.com/sethppierce/resty)
+
 ### Problem Domain
 
 Build a React App that takes in an api and shows how results are returned.
