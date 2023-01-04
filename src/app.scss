@@ -16,4 +16,14 @@ body {
     height: 100%;
   }
 
+  #container {
+    width: 800px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap:100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }

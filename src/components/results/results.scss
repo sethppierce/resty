@@ -1,0 +1,12 @@
+section {
+  width: 100%;
+  display: flex;
+  pre {
+    margin-left: 5%;
+    width: 500px;
+    height: 600px;
+    background-color: beige;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
