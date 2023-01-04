@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 import './app.scss';
 
@@ -9,40 +10,52 @@ import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
 
-class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
-  }
+const App = (props) => {
 
-  callApi = (requestParams) => {
+  const [data, setData ] = useState(null)
+  const [requestParams, setRequestParams ] = useState({})
+
+
+  const callApi = async (requestParams) => {
     // mock output
-    const data = {
-      count: 2,
-      results: [
-        {name: 'fake thing 1', url: 'http://fakethings.com/1'},
-        {name: 'fake thing 2', url: 'http://fakethings.com/2'},
-      ],
-    };
-    this.setState({data, requestParams});
+    setData('Loading...')
+    setRequestParams(requestParams);
+    try {
+      let results;
+      if(requestParams.method !== 'get' || requestParams.method !== 'delete'){
+        results = await axios({
+          method: requestParams.method,
+          url: requestParams.url,
+          results: requestParams.data
+        });
+      } else {
+        results = await axios({
+          method: requestParams.method,
+          url: requestParams.url
+        });
+      }
+      setData(results.data);
+    } catch (error) {
+      setData(error.message)
+    }
   }
 
-  render() {
     return (
       <React.Fragment>
         <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
-        <Form handleApiCall={this.callApi} />
-        <Results data={this.state.data} />
+        <div>
+          <p>Request Method: {requestParams.method}</p>
+          <p>URL: {requestParams.url}</p>
+        </div>
+        <div id='container'>
+          <Form handleApiCall={callApi} />
+          <Results data={data} />
+        </div>
         <Footer />
       </React.Fragment>
     );
-  }
+
 }
 
 export default App;

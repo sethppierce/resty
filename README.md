@@ -5,6 +5,7 @@
 ### Author: Seth Pierce
 
 - [gitub link](https://github.com/sethppierce/resty)
+- [prod deployment]()
 
 ### Problem Domain
 
@@ -24,9 +25,22 @@ Build a React App that takes in an api and shows how results are returned.
 #### Features / Routes
 
 - Form input takes in an api and displays results in the format that they would be returned in a call to the api.
+- text area that converts input into valid json for post and put requests.
 
 #### Tests
 
-#### UML
+- npm test
+- form
+  - tests to see if textarea is rendered depending on which CRUD method is selected
+- results
+  - tests to see if results are displayed if data is not there or data is present.
+
+### UML
+
+#### Phase 1 UML
 
 ![UML](./assets/Lab-26.png)
+
+#### Phase 2 UML
+
+![UML](./assets/Lab-27.png)
