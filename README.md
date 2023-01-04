@@ -5,7 +5,7 @@
 ### Author: Seth Pierce
 
 - [gitub link](https://github.com/sethppierce/resty)
-- [prod deployment]()
+- [prod deployment](https://singular-chimera-7750b1.netlify.app/)
 
 ### Problem Domain
 
