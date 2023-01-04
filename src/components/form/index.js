@@ -13,7 +13,7 @@ const Form = (props) => {
     const formData = {
       method: method,
       url: url,
-      data: JSON.stringify(requestBody)
+      data: JSON.parse(requestBody)
     };
     console.log(formData.data)
     handleApiCall(formData);

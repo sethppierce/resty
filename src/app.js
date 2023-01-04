@@ -27,7 +27,7 @@ const App = (props) => {
         results = await axios({
           method: requestParams.method,
           url: requestParams.url,
-          results: requestParams.data
+          data: requestParams.data
         });
       } else {
         results = await axios({
