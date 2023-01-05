@@ -1,4 +1,4 @@
-$backgroundColor: #f5f5f5;
+$backgroundColor: #272822;
 
 html, body {
   height: 100%;
@@ -9,7 +9,7 @@ html, body {
 body {
   background: $backgroundColor;
   height: 100%;
-
+  
   #root {
     display: flex;
     flex-direction: column;
@@ -26,4 +26,21 @@ body {
     margin-right: auto;
   }
 
+}
+
+.bodyContainer {
+  background-color: #272822;
+  color:#f92672;
+  display:flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  padding: 20px;
+  border-radius: 50px;
+  border: 4px #28dacb solid;
+  #requestURL {
+    margin-left: 10%;
+  }
 }

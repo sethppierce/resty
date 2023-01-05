@@ -7,7 +7,7 @@ const Results = (props) =>{
   const { data } = props;
     return (
       <section data-testid="results-display">
-        {data ? <JSONPretty id="json-pretty" data={data} theme={JSONPrettyMon}></JSONPretty>: null}
+        {data === 'Loading...' || !data  ? <JSONPretty id="json-pretty" data-testid="loading" data={data} theme={JSONPrettyMon}></JSONPretty>: <JSONPretty id="json-pretty" data-testid="results" data={data} theme={JSONPrettyMon}></JSONPretty>}
       </section>
     );
   }

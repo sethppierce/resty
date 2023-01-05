@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import './app.scss';
@@ -16,41 +16,45 @@ const App = (props) => {
   const [data, setData ] = useState(null)
   const [requestParams, setRequestParams ] = useState({})
 
-
-  const callApi = async (requestParams) => {
-    // mock output
-    setData('Loading...')
-    setRequestParams(requestParams);
-    try {
-      let results;
-      if(requestParams.method !== 'get' || requestParams.method !== 'delete'){
-        results = await axios({
-          method: requestParams.method,
-          url: requestParams.url,
-          data: requestParams.data
-        });
-      } else {
-        results = await axios({
-          method: requestParams.method,
-          url: requestParams.url
-        });
+  useEffect(() => {
+    async function callApi(){
+      // mock output
+      setData('Loading...')
+      try {
+        let results;
+        if(requestParams === {}){ return setData('Please enter a URL')}
+        if(requestParams.method !== 'get' || requestParams.method !== 'delete'){
+          results = await axios({
+            method: requestParams.method,
+            url: requestParams.url,
+            data: requestParams.data
+          });
+        } else {
+          results = await axios({
+            method: requestParams.method,
+            url: requestParams.url
+          });
+        }
+        setData(results.data);
+      } catch (error) {
+        setData(error.message)
       }
-      setData(results.data);
-    } catch (error) {
-      setData(error.message)
     }
-  }
+    callApi();
+  }, [requestParams]);
 
     return (
       <React.Fragment>
         <Header />
-        <div>
-          <p>Request Method: {requestParams.method}</p>
-          <p>URL: {requestParams.url}</p>
-        </div>
-        <div id='container'>
-          <Form handleApiCall={callApi} />
-          <Results data={data} />
+        <div className='bodyContainer'>
+          <div id='requestURL'>
+            <p>Request Method: {requestParams.method}</p>
+            <p>URL: {requestParams.url}</p>
+          </div>
+          <div id='container'>
+            <Form setRequestParams={setRequestParams} />
+            <Results data={data} />
+          </div>
         </div>
         <Footer />
       </React.Fragment>

@@ -34,6 +34,9 @@ Build a React App that takes in an api and shows how results are returned.
   - tests to see if textarea is rendered depending on which CRUD method is selected
 - results
   - tests to see if results are displayed if data is not there or data is present.
+- app
+  - mocks api call and tests to see if test api results are displayed within the results component
+  - mocks api call and tests to see if loading is displayed in results component while results from the api are still loading.
 
 ### UML
 
@@ -44,3 +47,7 @@ Build a React App that takes in an api and shows how results are returned.
 #### Phase 2 UML
 
 ![UML](./assets/Lab-27.png)
+
+#### Phase 3 UML
+
+![UML](./assets/Lab-28.png)
