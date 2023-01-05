@@ -21,10 +21,13 @@ form {
         cursor: pointer;
         margin-right: 1rem;
         padding: .25rem .5rem;
-        background: #ccc;
+        background: #fd971f;
+        color: #f92672;
+        font-weight: 600;
 
         &:hover, &.active {
-          background: #fff;
+          background: #ac81fe;
+          color: #8ab82d;
         }
       }
     }

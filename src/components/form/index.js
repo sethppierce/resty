@@ -2,21 +2,27 @@ import React, { useState } from 'react';
 import './form.scss';
 
 const Form = (props) => {
-  const { handleApiCall } = props;
+  const { setRequestParams } = props;
   const [method , setMethod] = useState('get');
-  const [url , setUrl] = useState();
   const [area , setArea] = useState(false);
+  const [url, setUrl] = useState(undefined);
   const [requestBody, setRequestBody] = useState('')
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUrl(e.target.url.value)
-    const formData = {
-      method: method,
-      url: url,
-      data: JSON.parse(requestBody)
-    };
-    console.log(formData.data)
-    handleApiCall(formData);
+    let formData;
+    if(method === 'put' || method === 'post'){
+      formData = {
+        method: method,
+        url: url,
+        data: JSON.parse(requestBody)
+      };
+    } else {
+      formData = {
+        method: method,
+        url: url
+      };
+    }
+    setRequestParams(formData);
   }
   const handleMethodSelect = (e) => {
     setMethod(e.target.id);
@@ -28,7 +34,7 @@ const Form = (props) => {
     <form onSubmit={handleSubmit}>
       <label>
         <span data-testid="form-URL">URL: </span>
-        <input name='url' type='text' data-testid="form-input"/>
+        <input name='url' type='text' data-testid="form-input" onChange={(e) => {setUrl(e.target.value)}}/>
         <button type="submit" data-testid="form-button">GO!</button>
       </label>
       <label className="methods" >
