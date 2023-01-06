@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent} from '@testing-library/react';
 
-import Results from './index';
+import Results from '../components/results/index';
 
 describe('Results test', () => {
   test('Results are not rendered when data is null', () => {

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent} from '@testing-library/react';
 
-import Form from './index';
+import Form from '../components/form/index';
 
 describe('Form test', () => {
 

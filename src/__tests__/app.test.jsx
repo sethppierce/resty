@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import {rest} from 'msw'
 import {setupServer} from 'msw/node'
-import App from './app';
+import App from '../app';
 const server = setupServer(
   rest.get('/testGet', (req, res, ctx) => {
     return res(ctx.json({

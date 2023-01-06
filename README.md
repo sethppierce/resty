@@ -26,6 +26,7 @@ Build a React App that takes in an api and shows how results are returned.
 
 - Form input takes in an api and displays results in the format that they would be returned in a call to the api.
 - text area that converts input into valid json for post and put requests.
+- history of previous api calls, methods, and results
 
 #### Tests
 
@@ -37,6 +38,8 @@ Build a React App that takes in an api and shows how results are returned.
 - app
   - mocks api call and tests to see if test api results are displayed within the results component
   - mocks api call and tests to see if loading is displayed in results component while results from the api are still loading.
+- reducer
+  - tests reducer cases to see if inserting correctly into state
 
 ### UML
 
@@ -51,3 +54,7 @@ Build a React App that takes in an api and shows how results are returned.
 #### Phase 3 UML
 
 ![UML](./assets/Lab-28.png)
+
+#### Phase 4 UML
+
+![UML](./assets/Lab-29.png)
